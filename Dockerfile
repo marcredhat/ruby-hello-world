@@ -17,11 +17,14 @@ RUN scl enable rh-ruby22 "bundle install"
 CMD ["scl", "enable", "rh-ruby22", "./run.sh"]
 
 USER root
-
 RUN chmod og+rw /opt/app-root/src/db
 
+USEr root
 RUN mkdir -p "$DT_HOME"
-RUN chmod og+rw -R "$DT_HOME"
+
+USER root
+RUN chmod a+rwx -R "$DT_HOME"
+USER root
 RUN wget -O "$DT_HOME/oneagent.zip" "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_API_TOKEN&$DT_ONEAGENT_OPTIONS" && \
     unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
     rm "$DT_HOME/oneagent.zip"
