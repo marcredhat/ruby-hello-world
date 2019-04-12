@@ -23,10 +23,10 @@ USER root
 RUN mkdir -p "$DT_HOME"
 
 WORKDIR "$DT_HOME"
-RUN rm -f "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k*"
-RUN wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k"
-RUN unzip -o "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" 
-RUN rm -f "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k*"
+RUN rm -f agent*
+RUN wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" -O agent
+RUN unzip -o agent
+RUN rm -f agent*
     
     
 USER default
