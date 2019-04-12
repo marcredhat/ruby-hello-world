@@ -14,10 +14,7 @@ USER root
 RUN mkdir -p "$DT_HOME"
 
 WORKDIR "$DT_HOME"
-RUN rm -f marc*
-RUN wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" -O marc
-RUN unzip -o marc
-RUN rm -f marc*
+RUN rm -f marc* &&  wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" -O marc && unzip -o marc && rm -f marc*
 
 COPY . /opt/app-root/src/
 RUN scl enable rh-ruby22 "bundle install"
