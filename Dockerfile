@@ -22,9 +22,9 @@ RUN chmod og+rw /opt/app-root/src/db
 USER root
 RUN mkdir -p "$DT_HOME"
 WORKDIR "$DT_HOME"
-RUN curl -L   "curl -L https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k -o oneagent.zip" && \
-    unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
-    rm "$DT_HOME/oneagent.zip"
+RUN curl -L   "wget https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && \
+    unzip -o "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && \
+    rm "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k"
     
     
 USER default
