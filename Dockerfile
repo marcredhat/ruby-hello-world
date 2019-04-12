@@ -20,6 +20,7 @@ USER root
 RUN chmod og+rw /opt/app-root/src/db
 
 USER root
+RUN mkdir -p "$DT_HOME"
 RUN curl -L   "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_API_TOKEN&$DT_ONEAGENT_OPTIONS" -o "$DT_HOME/oneagent.zip" && \
     unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
     rm "$DT_HOME/oneagent.zip"
