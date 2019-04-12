@@ -24,7 +24,7 @@ RUN mkdir -p "$DT_HOME"
 WORKDIR "$DT_HOME"
 RUN wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && \
     unzip -o "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && \
-    rm "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k*"
+    rm -f "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k*"
     
     
 USER default
