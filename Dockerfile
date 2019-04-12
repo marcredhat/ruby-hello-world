@@ -10,16 +10,15 @@ ARG DT_API_URL="https://qti18306.live.dynatrace.com/api"
 ARG DT_API_TOKEN="ZvgLQSrnRxejocKaSpI_z"
 ARG DT_ONEAGENT_OPTIONS="flavor=all&include=ruby>"
 ENV DT_HOME="/opt/dynatrace/oneagent"
-USER root
 
 
 
-RUN  mkdir -p "$DT_HOME" && wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && unzip -o "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && rm -f marc*
-ENTRYPOINT [ "/opt/dynatrace/oneagent/dynatrace-agent64.sh" ]
+
 
 USER default
 COPY . /opt/app-root/src/
-RUN scl enable rh-ruby22 "bundle install"
+RUN scl enable rh-ruby22 "bundle install" && mkdir -p "$DT_HOME" && wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && unzip -o "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k" && rm -f marc*
+ENTRYPOINT [ "/opt/dynatrace/oneagent/dynatrace-agent64.sh" ]
 CMD ["scl", "enable", "rh-ruby22", "./run.sh"]
 
 USER root
