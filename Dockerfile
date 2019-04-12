@@ -18,7 +18,7 @@ CMD ["scl", "enable", "rh-ruby22", "./run.sh"]
 
 USER root
 RUN chmod og+rw /opt/app-root/src/db
-
+RUN chmod og+rw -R "$DT_HOME"
 RUN mkdir -p "$DT_HOME" && \
     wget -O "$DT_HOME/oneagent.zip" "$DT_API_URL/v1/deployment/installer/agent/unix/paas/latest?Api-Token=$DT_API_TOKEN&$DT_ONEAGENT_OPTIONS" && \
     unzip -d "$DT_HOME" "$DT_HOME/oneagent.zip" && \
