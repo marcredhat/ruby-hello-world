@@ -21,7 +21,7 @@ RUN chmod og+rw /opt/app-root/src/db
 
 USER root
 RUN mkdir -p "$DT_HOME"
-RUN chmod a+rwx -R "$DT_HOME"
+RUN chmod og+rwx "$DT_HOME"
 WORKDIR "$DT_HOME"
 RUN rm -f "latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k*"
 RUN wget "https://qti18306.live.dynatrace.com/api/v1/deployment/installer/agent/unix/paas/latest?Api-Token=c1CD5Mn-QfyxsbvBiKT-k"
