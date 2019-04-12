@@ -7,7 +7,7 @@ ENV RAILS_ENV production
 
 
 ARG DT_API_URL="https://qti18306.live.dynatrace.com/api"
-ARG DT_API_TOKEN="2PdTocpxT_GkcqUib-mQK"
+ARG DT_API_TOKEN="ZbhebPUfQiac1qEcxIBAm"
 ARG DT_ONEAGENT_OPTIONS="flavor=all"
 ENV DT_HOME="/opt/app-root/src"
 
